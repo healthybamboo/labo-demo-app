@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>避難地図デモ</title>
+  <script src="./send.js"></script>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+
+<body>
+  <label>送信先</label>
+  <select id="host">
+    <option value="http://localhost:8000">ローカル:8000</option>
+    <option value="http://asalab.daido-it.ac.jp/evac">グローバル</option>
+    <option value="http://10.202.1.100:8000/evac">内部ネットワーク</option>
+  </select>
+  <br>
+  <label>端末ID</label>
+   <input type="text" id="tid" value="test001">
+  <br>
+  <label>パス</label>
+  <select id="path" name="path">
+    <option value="/api/mode" selected>モード</option>
+    <option value="/api/map/json">地図</option>
+    <option value="/api/location">位置情報</option>
+  </select>
+  <br>
+  <div id="request" hidden>
+    <label>リクエスト</label></br>
+    <textarea id="request_body" class="body_area"></textarea>
+  </div>
+  <button id="send_button">Run</button>
+  <div id="response">
+    <label>レスポンス</label></br>
+    <textarea id="response_body" readonly class="body_area"></textarea>
+  </div>
+</body>
+
+</html>
